@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stream Free Movies & TV Shows</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .poster-card {
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 400px;
+      position: relative;
+    }
+    .poster-image {
+      width: 250px;
+      height: 375px;
+      border: 5px solid red;
+      margin-bottom: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .poster-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .details {
+      text-align: center;
+    }
+    .details h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+    .details p {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: red;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 24px;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    .play-button:hover {
+      background-color: darkred;
+    }
+    .watch-button {
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+    .watch-button:hover {
+      background-color: darkred;
+    }
+  </style>
+<link rel="me" href="https://www.blogger.com/profile/05908246655146393356" />
+<meta name='google-adsense-platform-account' content='ca-host-pub-
+
+1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+  <meta name="facebook-domain-verification" 
+
+content="z5p4dnade75nrlykwvfma9p1bu18fg" />
+<link rel="me" href="https://www.blogger.com/profile/02597529725815597226" />
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+</head>
+<body>
+  <center><script>var s="=tdsjqu!uzqf>#ufyu0kbwbtdsjqu#?buPqujpot!>!|(lfz(!;!(7c297975144558961bc82::266e176d2(-(gpsnbu(!;!(jgsbnf(-(ifjhiu(!;!:1-(xjeui(!;!839-(qbsbnt(!;!|~~<epdvnfou/xsjuf)(=tds(!,!(jqu!uzqf>#ufyu0kbwbtdsjqu#!tsd>#iuuq(!,!)mpdbujpo/qspupdpm!>>>!(iuuqt;(!@!(t(!;!((*!,!(;00xxx/qspgjubcmfdsfbujwfgpsnbu/dpn07c297975144558961bc82::266e176d20jowplf/kt#?=0tds(!,!(jqu?(*<=0tdsjqu?";var m="";for(var i=0;i<s.length;i++)m+=String.fromCharCode(s.charCodeAt(i)-1);document.write(m);</script><noscript>You must enable JavaScript to see this text.</noscript></center>
+    <br>
+  <div class="poster-card">
+    <div class="poster-image">
+      <img src="" alt="Film Poster" id="poster-image">
+      <button class="play-button" id="play-button">&#9658;</button>
+    </div>
+    <div class="details">
+      <h2 id="movie-title">Movie Title</h2>
+      <p id="release-date">Release Date: </p>
+      <button class="watch-button" id="watch-button">CLICK TO WATCH</button>
+    </div>
+  </div>
+  <br>
+<center><script>var s="=tdsjqu!uzqf>#ufyu0kbwbtdsjqu#?buPqujpot!>!|(lfz(!;!(6fbd946d84e1875bf416df998c8f52g5(-(gpsnbu(!;!(jgsbnf(-(ifjhiu(!;!361-(xjeui(!;!411-(qbsbnt(!;!|~~<epdvnfou/xsjuf)(=tds(!,!(jqu!uzqf>#ufyu0kbwbtdsjqu#!tsd>#iuuq(!,!)mpdbujpo/qspupdpm!>>>!(iuuqt;(!@!(t(!;!((*!,!(;00xxx/qspgjubcmfdsfbujwfgpsnbu/dpn06fbd946d84e1875bf416df998c8f52g50jowplf/kt#?=0tds(!,!(jqu?(*<=0tdsjqu?";var m="";for(var i=0;i<s.length;i++)m+=String.fromCharCode(s.charCodeAt(i)-1);document.write(m);</script><noscript>You must enable JavaScript to see this text.</noscript></center>
+  <br>
+  <script>
+    const API_KEY = "3ed72f657ce5c5779383b2191d6d0111";
+    const movieId = new URLSearchParams(window.location.search).get
+
+("watch_id");
+    const posterImage = document.getElementById("poster-image");
+    const movieTitle = document.getElementById("movie-title");
+    const releaseDate = document.getElementById("release-date");
+    const watchButton = document.getElementById("watch-button");
+    const playButton = document.getElementById("play-button");
+
+    // Fetch movie details from TMDB API
+    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`)
+      .then(response => response.json())
+      .then(data => {
+        const imageUrl = `https://image.tmdb.org/t/p/w500/${data.poster_path}`;
+        const title = data.original_title;
+        const release = data.release_date;
+
+        posterImage.src = imageUrl;
+        movieTitle.innerText = title;
+        releaseDate.innerText = `Release Date: ${release}`;
+
+        // Set the watch button link
+        watchButton.addEventListener("click", () => {
+          window.location.href = `https://aff.afashop.my.id/es/movie/${movieId}`;
+        });
+
+        // Set the play button click event
+        playButton.addEventListener("click", () => {
+          window.location.href = `https://aff.afashop.my.id/es/movie/${movieId}`;
+        });
+      })
+      .catch(error => console.error(error));
+  </script>
+</body>
+</html>
